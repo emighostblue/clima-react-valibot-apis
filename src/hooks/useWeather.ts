@@ -54,7 +54,7 @@ export const useWeather = () => {
                 setNotFound(true)
                 return
             }
-            const { data: weatherResult } = await axios(`https://api.openweathermap.org/data/2.5/weather?lat=${data[0].lat}&lon=${data[0].lon}&units=metric&appid=${API_KEY}`)
+            const { data: weatherResult } = await axios(`http://api.openweathermap.org/data/2.5/weather?lat=${data[0].lat}&lon=${data[0].lon}&units=metric&appid=${API_KEY}`)
             const result = parse(WeatherSchema, weatherResult)
             if (result) {
                 // console.log(result.name)
