@@ -47,7 +47,7 @@ export const useWeather = () => {
         console.log(`en el metodo`)
         setLoading(true)
         const API_KEY = import.meta.env.VITE_API_KEY_WEATHER
-        const url = `http://api.openweathermap.org/geo/1.0/direct?q=${city},${country}&appid=${API_KEY}`
+        const url = `https://api.openweathermap.org/geo/1.0/direct?q=${city},${country}&appid=${API_KEY}`
         try {
             const { data } = await axios(url)
             if(!data[0]){
@@ -56,7 +56,7 @@ export const useWeather = () => {
                 return
             }
             console.log(data)
-            const { data: weatherResult } = await axios(`http://api.openweathermap.org/data/2.5/weather?lat=${data[0].lat}&lon=${data[0].lon}&units=metric&appid=${API_KEY}`)
+            const { data: weatherResult } = await axios(`https://api.openweathermap.org/data/2.5/weather?lat=${data[0].lat}&lon=${data[0].lon}&units=metric&appid=${API_KEY}`)
             const result = parse(WeatherSchema, weatherResult)
             if (result) {
                 console.log(result.name)
